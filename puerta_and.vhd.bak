@@ -1,0 +1,13 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity puerta_or is
+	generic ( n: integer :=1);
+	port(	X,Y: in std_logic_vector(n-1 downto 0);
+			S: out std_logic_vector(n-1 downto 0));
+end puerta_or;
+
+architecture sol of puerta_or is
+	begin
+		s<=x xor y;
+end sol;

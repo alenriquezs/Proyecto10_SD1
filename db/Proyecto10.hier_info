@@ -1,0 +1,293 @@
+|Proyecto10
+fin <= mss_sl:inst.fin
+resetn => mss_sl:inst.resetn
+clk => mss_sl:inst.clk
+clk => reg:inst1.Clk
+clk => reg_LR:inst8.clk
+clk => reg:inst2.Clk
+clk => reg_LR:inst10.clk
+clk => reg:inst3.Clk
+start => mss_sl:inst.start
+enter => mss_sl:inst.enter
+Valido <= puerta_and:inst18.S[0]
+Q0[0] <= reg:inst1.q[0]
+Q0[1] <= reg:inst1.q[1]
+Q0[2] <= reg:inst1.q[2]
+Q0[3] <= reg:inst1.q[3]
+Digito[0] => reg:inst1.d[0]
+Digito[0] => reg:inst2.d[0]
+Digito[0] => reg:inst3.d[0]
+Digito[1] => reg:inst1.d[1]
+Digito[1] => reg:inst2.d[1]
+Digito[1] => reg:inst3.d[1]
+Digito[2] => reg:inst1.d[2]
+Digito[2] => reg:inst2.d[2]
+Digito[2] => reg:inst3.d[2]
+Digito[3] => reg:inst1.d[3]
+Digito[3] => reg:inst2.d[3]
+Digito[3] => reg:inst3.d[3]
+Q1[0] <= reg:inst2.q[0]
+Q1[1] <= reg:inst2.q[1]
+Q1[2] <= reg:inst2.q[2]
+Q1[3] <= reg:inst2.q[3]
+Q2[0] <= reg:inst3.q[0]
+Q2[1] <= reg:inst3.q[1]
+Q2[2] <= reg:inst3.q[2]
+Q2[3] <= reg:inst3.q[3]
+est[0] <= mss_sl:inst.est[0]
+est[1] <= mss_sl:inst.est[1]
+est[2] <= mss_sl:inst.est[2]
+est[3] <= mss_sl:inst.est[3]
+
+
+|Proyecto10|mss_sl:inst
+resetn => y~3.DATAIN
+clk => y~1.DATAIN
+start => y.DATAB
+start => y.DATAB
+start => Selector0.IN1
+start => Selector1.IN1
+start => Selector4.IN2
+enter => y.DATAB
+enter => y.DATAB
+enter => y.DATAB
+enter => Selector1.IN2
+enter => y.DATAB
+enter => Selector2.IN2
+enter => y.DATAB
+enter => Selector3.IN2
+enter => y.DATAB
+est[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+est[1] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+est[2] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+est[3] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+e0 <= e0.DB_MAX_OUTPUT_PORT_TYPE
+e1 <= e1.DB_MAX_OUTPUT_PORT_TYPE
+e2 <= e2.DB_MAX_OUTPUT_PORT_TYPE
+e3 <= e3.DB_MAX_OUTPUT_PORT_TYPE
+fin <= fin.DB_MAX_OUTPUT_PORT_TYPE
+resetnReg <= resetnReg.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|puerta_and:inst18
+X[0] => S.IN0
+Y[0] => S.IN1
+z[0] => S.IN1
+S[0] <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|comparador:inst4
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+AmenorB <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+AmayorB <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+AigualB <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|reg:inst1
+Clk => q[0]~reg0.CLK
+Clk => q[1]~reg0.CLK
+Clk => q[2]~reg0.CLK
+Clk => q[3]~reg0.CLK
+resetn => q[0]~reg0.ACLR
+resetn => q[1]~reg0.ACLR
+resetn => q[2]~reg0.ACLR
+resetn => q[3]~reg0.ACLR
+en => q[3]~reg0.ENA
+en => q[2]~reg0.ENA
+en => q[1]~reg0.ENA
+en => q[0]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|reg_LR:inst8
+Resetn => Despl[0]~reg0.ACLR
+Resetn => Despl[1]~reg0.ACLR
+Resetn => Despl[2]~reg0.ACLR
+Resetn => Despl[3]~reg0.ACLR
+En => Despl[0]~reg0.ENA
+En => Despl[3]~reg0.ENA
+En => Despl[2]~reg0.ENA
+En => Despl[1]~reg0.ENA
+R => Despl.DATAB
+clk => Despl[0]~reg0.CLK
+clk => Despl[1]~reg0.CLK
+clk => Despl[2]~reg0.CLK
+clk => Despl[3]~reg0.CLK
+DataIn[0] => Equal0.IN7
+DataIn[0] => Equal1.IN7
+DataIn[0] => Equal2.IN7
+DataIn[0] => Equal3.IN7
+DataIn[0] => Add0.IN8
+DataIn[1] => Equal0.IN6
+DataIn[1] => Equal1.IN6
+DataIn[1] => Equal2.IN6
+DataIn[1] => Equal3.IN6
+DataIn[1] => Add0.IN7
+DataIn[1] => Despl.DATAB
+DataIn[2] => Equal0.IN5
+DataIn[2] => Equal1.IN5
+DataIn[2] => Equal2.IN5
+DataIn[2] => Equal3.IN5
+DataIn[2] => Add0.IN6
+DataIn[2] => Despl.DATAB
+DataIn[3] => Equal0.IN4
+DataIn[3] => Equal1.IN4
+DataIn[3] => Equal2.IN4
+DataIn[3] => Equal3.IN4
+DataIn[3] => Add0.IN5
+DataIn[3] => Despl.DATAB
+Despl[0] <= Despl[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[1] <= Despl[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[2] <= Despl[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[3] <= Despl[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|reg:inst2
+Clk => q[0]~reg0.CLK
+Clk => q[1]~reg0.CLK
+Clk => q[2]~reg0.CLK
+Clk => q[3]~reg0.CLK
+resetn => q[0]~reg0.ACLR
+resetn => q[1]~reg0.ACLR
+resetn => q[2]~reg0.ACLR
+resetn => q[3]~reg0.ACLR
+en => q[3]~reg0.ENA
+en => q[2]~reg0.ENA
+en => q[1]~reg0.ENA
+en => q[0]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|comparador:inst5
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+AmenorB <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+AmayorB <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+AigualB <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|reg_LR:inst10
+Resetn => Despl[0]~reg0.ACLR
+Resetn => Despl[1]~reg0.ACLR
+Resetn => Despl[2]~reg0.ACLR
+Resetn => Despl[3]~reg0.ACLR
+En => Despl[0]~reg0.ENA
+En => Despl[3]~reg0.ENA
+En => Despl[2]~reg0.ENA
+En => Despl[1]~reg0.ENA
+R => Despl.DATAB
+clk => Despl[0]~reg0.CLK
+clk => Despl[1]~reg0.CLK
+clk => Despl[2]~reg0.CLK
+clk => Despl[3]~reg0.CLK
+DataIn[0] => Equal0.IN7
+DataIn[0] => Equal1.IN7
+DataIn[0] => Equal2.IN7
+DataIn[0] => Equal3.IN7
+DataIn[0] => Add0.IN8
+DataIn[1] => Equal0.IN6
+DataIn[1] => Equal1.IN6
+DataIn[1] => Equal2.IN6
+DataIn[1] => Equal3.IN6
+DataIn[1] => Add0.IN7
+DataIn[1] => Despl.DATAB
+DataIn[2] => Equal0.IN5
+DataIn[2] => Equal1.IN5
+DataIn[2] => Equal2.IN5
+DataIn[2] => Equal3.IN5
+DataIn[2] => Add0.IN6
+DataIn[2] => Despl.DATAB
+DataIn[3] => Equal0.IN4
+DataIn[3] => Equal1.IN4
+DataIn[3] => Equal2.IN4
+DataIn[3] => Equal3.IN4
+DataIn[3] => Add0.IN5
+DataIn[3] => Despl.DATAB
+Despl[0] <= Despl[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[1] <= Despl[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[2] <= Despl[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Despl[3] <= Despl[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Proyecto10|reg:inst3
+Clk => q[0]~reg0.CLK
+Clk => q[1]~reg0.CLK
+Clk => q[2]~reg0.CLK
+Clk => q[3]~reg0.CLK
+resetn => q[0]~reg0.ACLR
+resetn => q[1]~reg0.ACLR
+resetn => q[2]~reg0.ACLR
+resetn => q[3]~reg0.ACLR
+en => q[3]~reg0.ENA
+en => q[2]~reg0.ENA
+en => q[1]~reg0.ENA
+en => q[0]~reg0.ENA
+d[0] => q[0]~reg0.DATAIN
+d[1] => q[1]~reg0.DATAIN
+d[2] => q[2]~reg0.DATAIN
+d[3] => q[3]~reg0.DATAIN
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
